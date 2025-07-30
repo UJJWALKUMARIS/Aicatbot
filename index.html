@@ -10,9 +10,6 @@
       padding: 0;
       height: 100%;
       background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: Arial, sans-serif;
     }
 
@@ -20,6 +17,7 @@
       position: absolute;
       top: 30px;
       text-align: center;
+      width: 100%;
       color: #555;
       font-size: 1.2rem;
     }
@@ -32,6 +30,15 @@
   <!-- Botpress WebChat Scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/07/29/09/20250729090614-0NMQ7XSP.js" defer></script>
+
+  <!-- Force the chatbot to open automatically when loaded -->
+  <script>
+    window.addEventListener('message', function (event) {
+      if (event.data.name === 'webchatLoaded') {
+        window.botpressWebChat.sendEvent({ type: 'show' });
+      }
+    });
+  </script>
 
 </body>
 </html>
