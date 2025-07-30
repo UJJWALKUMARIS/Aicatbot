@@ -10,34 +10,55 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: #ffffff;
+      background-color: #f8f9fa;
       font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #webchat {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
     }
 
     .message {
-      position: absolute;
-      top: 30px;
-      text-align: center;
-      width: 100%;
-      color: #555;
-      font-size: 1.2rem;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="message">Welcome! Your chatbot is loading…</div>
 
-  <!-- Botpress WebChat Scripts -->
+  <!-- Optional Loading Message -->
+  <div class="message">Loading chatbot...</div>
+
+  <!-- Botpress Scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
   <script src="https://files.bpcontent.cloud/2025/07/29/09/20250729090614-0NMQ7XSP.js" defer></script>
 
-  <!-- Ensure chat auto-opens when loaded -->
+  <!-- Fullscreen Behavior Script -->
   <script>
     window.addEventListener('message', function (event) {
       if (event.data?.name === 'webchatLoaded') {
+        const iframe = document.querySelector('iframe[name="webchat"]');
+        if (iframe) {
+          iframe.style.position = 'fixed';
+          iframe.style.top = 0;
+          iframe.style.left = 0;
+          iframe.style.width = '100vw';
+          iframe.style.height = '100vh';
+          iframe.style.zIndex = '9999';
+          iframe.style.border = 'none';
+        }
+
+        // Open chat automatically and hide launcher
         window.botpressWebChat.sendEvent({ type: 'show' });
+        window.botpressWebChat.setConfig({ hideWidget: true });
       }
     });
   </script>
+
 </body>
 </html>
