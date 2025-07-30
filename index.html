@@ -2,58 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StudyGPT - Made by Ujjwal Kumar</title>
+  <title>StudyGPT | AI Catbot</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-    #webchat {
-      width: 100%;
-      height: 100vh;
-      max-width: 480px;
+      height: 100%;
+      background-color: #1e1e1e;
     }
   </style>
 </head>
 <body>
-  <div id="webchat"></div>
-
-  <!-- Load Botpress WebChat -->
+  <!-- Botpress Webchat Script -->
   <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
   <script>
     window.addEventListener('load', function () {
       window.botpressWebChat.init({
-        "composerPlaceholder": "Type your message...",
-        "botConversationDescription": "Ha I am made by Ujjwal kuamr",
-        "botId": "092852729309614-0NMq7XSP",
-        "hostUrl": "https://cdn.botpress.cloud/webchat/v3",
-        "messagingUrl": "https://messaging.botpress.cloud",
-        "clientId": "092852729309614-0NMq7XSP",
-        "webhookId": "976e93fd-1c12-4bc7-9c7e-ff0d65934f18",
-        "lazySocket": true,
-        "themeName": "prism",
-        "botName": "StudyGpt",
-        "avatarUrl": "https://i.imgur.com/XhQXhFf.png",
-        "stylesheet": "https://cdn.jsdelivr.net/npm/@botpress/webchat@latest/css/light.css",
-        "enableReset": true,
-        "showPoweredBy": true,
-        "containerWidth": "100%",
-        "layoutWidth": "100%",
-        "hideWidget": true,
-        "disableAnimations": false,
-        "closeOnEscape": false
+        botId: "ce4c7bbc-b5de-4c4b-87ec-6e884681ab80",  // ✅ from your workspace URL
+        clientId: "d3915e9a-3313-4b52-b054-0202318696fc", // ✅ from Advanced Settings
+        hostUrl: "https://cdn.botpress.cloud/webchat/v3",
+        messagingUrl: "https://messaging.botpress.cloud",
+        botName: "StudyGPT",
+        botConversationDescription: "Ha I am made by Ujjwal kuamr",
+        avatarUrl: "https://i.imgur.com/BQZUdD1.png", // or your own image link
+        stylesheet: "https://cdn.botpress.cloud/webchat/v3/themes/default.css",
+        showCloseButton: true,
+        enableConversationDeletion: true,
+        layout: "centered",
+        themeName: "prism",
+        themeColor: "#00bcd4",
+        hideWidget: true
       });
-
-      window.botpressWebChat.onEvent(() => {
-        window.botpressWebChat.sendEvent({ type: "show" });
-      }, ["LIFECYCLE.LOADED"]);
     });
   </script>
 </body>
