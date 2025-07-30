@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>StudyGPT | AI Catbot</title>
+  <title>StudyGPT | AI Chatbot</title>
   <style>
     html, body {
       margin: 0;
@@ -13,26 +13,13 @@
   </style>
 </head>
 <body>
-  <!-- Botpress Webchat Script -->
-  <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
-  <script>
-    window.addEventListener('load', function () {
-      window.botpressWebChat.init({
-        botId: "ce4c7bbc-b5de-4c4b-87ec-6e884681ab80",  // ✅ from your workspace URL
-        clientId: "d3915e9a-3313-4b52-b054-0202318696fc", // ✅ from Advanced Settings
-        hostUrl: "https://cdn.botpress.cloud/webchat/v3",
-        messagingUrl: "https://messaging.botpress.cloud",
-        botName: "StudyGPT",
-        botConversationDescription: "Ha I am made by Ujjwal kuamr",
-        avatarUrl: "https://i.imgur.com/BQZUdD1.png", // or your own image link
-        stylesheet: "https://cdn.botpress.cloud/webchat/v3/themes/default.css",
-        showCloseButton: true,
-        enableConversationDeletion: true,
-        layout: "centered",
-        themeName: "prism",
-        themeColor: "#00bcd4",
-        hideWidget: true
-      });
+  <script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js" defer></script>
+  <script defer>
+    window.botpressWebChat.init({
+      configUrl: "https://files.bpcontent.cloud/2025/07/29/09/20250729090614-NLAZAE26.json",
+      // Optional to force open and look like an app
+      hideWidget: true,
+      layout: "centered"
     });
   </script>
 </body>
